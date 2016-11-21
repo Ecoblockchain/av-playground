@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 4890303e5b9fc6d45a43408e6ec07a7a
+<<<<<<< HEAD
 timeCreated: 1479690759
+=======
+timeCreated: 1479715484
+>>>>>>> annieMessingAround
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -21,7 +25,10 @@ ModelImporter:
     7400006: Circle|Action
     7400008: Circle|Action.001
     7400010: Circle|CircleAction
+<<<<<<< HEAD
     7400012: Circle|CircleAction0
+=======
+>>>>>>> annieMessingAround
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -43,6 +50,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: Circle|CircleAction0
@@ -236,6 +244,9 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> annieMessingAround
     isReadable: 1
   meshes:
     lODScreenPercentages: []
