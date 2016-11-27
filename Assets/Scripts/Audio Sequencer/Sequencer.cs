@@ -176,6 +176,15 @@ public class Sequencer : SequencerBase
     /// Attached audio source.
     /// </summary>
     private AudioSource _audioSource;
+
+	private int prevStep = 0;
+	public Material newMaterial;
+	public Material origMaterial;
+	public float changeInterval = 0.33F;
+	public Renderer rend;
+	public int numSelectors = 5;
+	public GameObject[] beatArr;
+	public GameObject selector; //selected in the editor
     #endregion
 
     #region Properties
@@ -502,6 +511,20 @@ public class Sequencer : SequencerBase
 
     private void Update()
     {
+		// Debug.Log (_currentStep);
+		if (_currentStep>0) {
+			if (_currentStep != prevStep) {
+				if (_currentStep == 1) {
+					beatArr [7].GetComponent<Renderer> ().sharedMaterial = origMaterial;
+				} else {
+					beatArr [_currentStep-2].GetComponent<Renderer> ().sharedMaterial = origMaterial;
+				}
+				// Debug.Log ("Change");
+				// Debug.Log (hihatArr[_currentStep-1]);
+				beatArr [_currentStep - 1].GetComponent<Renderer> ().sharedMaterial = newMaterial;
+			}
+			prevStep = _currentStep;
+		}
         while (_fireAnyStepEvent > 0)
         {
             _fireAnyStepEvent--;
