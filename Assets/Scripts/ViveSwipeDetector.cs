@@ -56,7 +56,7 @@ public class ViveSwipeDetector : NetworkBehaviour {
 			mStartPosition = new Vector2 (device.GetAxis (Valve.VR.EVRButtonId.k_EButton_Axis0).x,
 				device.GetAxis (Valve.VR.EVRButtonId.k_EButton_Axis0).y);
 			mSwipeStartTime = Time.time;
-		}
+		}t
 		// Touch up , possible chance for a swipe
 		else if (device.GetTouchUp (Valve.VR.EVRButtonId.k_EButton_Axis0)) {
 			trackingSwipe = false;
@@ -126,11 +126,17 @@ public class ViveSwipeDetector : NetworkBehaviour {
 	private void OnSwipeLeft() {
 		Debug.Log ("Swipe Left");
 		mMessageIndex = 1;
+		GameObject susan = GameObject.Find("Lazy Susan");
+		ScriptName rotateSusan = susan.GetComponent<ScriptName>()
+		rotateSusan.OpenOut(Vector3.up);
 	}
 
 	private void OnSwipeRight() {
 		Debug.Log ("Swipe right");
 		mMessageIndex = 2;
+		GameObject susan = GameObject.Find("Lazy Susan");
+		ScriptName rotateSusan = susan.GetComponent<ScriptName>()
+		rotateSusan.OpenOut(Vector3.down);		
 	}
 
 	private void OnSwipeTop() {
