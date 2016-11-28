@@ -33,6 +33,7 @@ namespace VRTK
         private Vector3 pointerTipScale = new Vector3(0.05f, 0.05f, 0.05f);
         // material of customPointerCursor (if defined)
         private Material customPointerMaterial;
+        public Transform pointerTarget; //custom
 
         protected override void OnEnable()
         {
@@ -166,6 +167,7 @@ namespace VRTK
 
                 pointerContactDistance = 0f;
                 pointerContactTarget = null;
+                pointerTarget = pointerContactTarget; //custom
                 destinationPosition = Vector3.zero;
 
                 UpdatePointerMaterial(pointerMissColor);
@@ -176,6 +178,7 @@ namespace VRTK
             {
                 pointerContactDistance = collidedWith.distance;
                 pointerContactTarget = collidedWith.transform;
+                pointerTarget = pointerContactTarget; //custom
                 destinationPosition = pointerTip.transform.position;
 
                 UpdatePointerMaterial(pointerHitColor);

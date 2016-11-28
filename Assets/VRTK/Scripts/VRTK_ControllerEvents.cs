@@ -360,6 +360,8 @@ namespace VRTK
             {
                 TriggerClicked(this, e);
             }
+            IcosphereActivator icosphereActivator = gameObject.GetComponent<IcosphereActivator>();
+            icosphereActivator.activateIcosphere();
         }
 
         public virtual void OnTriggerUnclicked(ControllerInteractionEventArgs e)

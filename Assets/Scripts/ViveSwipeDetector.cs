@@ -47,10 +47,11 @@ public class ViveSwipeDetector : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Halooo");
-		var device = SteamVR_Controller.Input((int)trackedObj.index);
+		//var device = gameObject;
+		//var device = SteamVR_Controller.Input((int)trackedObj.index);
+		var device = SteamVR_Controller.Input(0);
 		// Touch down, possible chance for a swipe
-		if ((int)trackedObj.index != -1 && device.GetTouchDown (Valve.VR.EVRButtonId.k_EButton_Axis0)) {
+		if (device.GetTouchDown (Valve.VR.EVRButtonId.k_EButton_Axis0)) {
 			trackingSwipe = true;
 			// Record start time and position
 			mStartPosition = new Vector2 (device.GetAxis (Valve.VR.EVRButtonId.k_EButton_Axis0).x,
@@ -75,9 +76,6 @@ public class ViveSwipeDetector : NetworkBehaviour {
 			checkSwipe = false;
 
 			float deltaTime = Time.time - mSwipeStartTime;
-
-
-
 
 			Vector2 swipeVector = endPosition - mStartPosition;
 

@@ -21,22 +21,22 @@
         private void DebugLogger(uint index, string action, Transform target, float distance, Vector3 tipPosition)
         {
             string targetName = (target ? target.name : "<NO VALID TARGET>");
-            Debug.Log("Controller on index '" + index + "' is " + action + " at a distance of " + distance + " on object named " + targetName + " - the pointer tip position is/was: " + tipPosition);
+            //Debug.Log("Controller on index '" + index + "' is " + action + " at a distance of " + distance + " on object named " + targetName + " - the pointer tip position is/was: " + tipPosition);
         }
 
         private void DoPointerIn(object sender, DestinationMarkerEventArgs e)
         {
-            DebugLogger(e.controllerIndex, "POINTER IN", e.target, e.distance, e.destinationPosition);
+            //DebugLogger(e.controllerIndex, "POINTER IN", e.target, e.distance, e.destinationPosition);
         }
 
         private void DoPointerOut(object sender, DestinationMarkerEventArgs e)
         {
-            DebugLogger(e.controllerIndex, "POINTER OUT", e.target, e.distance, e.destinationPosition);
+            //DebugLogger(e.controllerIndex, "POINTER OUT", e.target, e.distance, e.destinationPosition);
         }
 
         private void DoPointerDestinationSet(object sender, DestinationMarkerEventArgs e)
         {
-            DebugLogger(e.controllerIndex, "POINTER DESTINATION", e.target, e.distance, e.destinationPosition);
+            //DebugLogger(e.controllerIndex, "POINTER DESTINATION", e.target, e.distance, e.destinationPosition);
         }
     }
 }
