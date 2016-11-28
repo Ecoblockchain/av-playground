@@ -180,11 +180,14 @@ public class Sequencer : SequencerBase
 	private int prevStep = 0;
 	public Material newMaterial;
 	public Material origMaterial;
-	public float changeInterval = 0.33F;
-	public Renderer rend;
-	public int numSelectors = 5;
+	public Material glowMaterial;
+	public String objectTag;
 	public GameObject[] beatArr;
-	public GameObject selector; //selected in the editor
+	private GameObject[] objectParts;
+	//private GameObject[] kickParts;
+	//private GameObject[] snareParts;
+	public GameObject animationObject;
+
     #endregion
 
     #region Properties
@@ -207,7 +210,13 @@ public class Sequencer : SequencerBase
 #endif
         StartCoroutine(Init());
     }
+	void Start()
 
+	{
+		objectParts =  GameObject.FindGameObjectsWithTag(objectTag);
+		//kickParts =  GameObject.FindGameObjectsWithTag("kickParts");
+		//snareParts =  GameObject.FindGameObjectsWithTag("snareParts");
+	}
     /// <summary>
     /// Wait until sequencer is ready.
     /// </summary>
@@ -522,6 +531,15 @@ public class Sequencer : SequencerBase
 				// Debug.Log ("Change");
 				// Debug.Log (hihatArr[_currentStep-1]);
 				beatArr [_currentStep - 1].GetComponent<Renderer> ().sharedMaterial = newMaterial;
+				foreach (GameObject objects in objectParts) {
+					Debug.Log (objects.GetComponent<Renderer> ().sharedMaterial);
+					if (objects.GetComponent<Renderer> ().sharedMaterial == glowMaterial) {
+						if(objects.transform.parent.gameObject.GetComponent<Renderer> ().sharedMaterial == newMaterial){
+							Debug.Log ("working");
+							animationObject.GetComponent<Animation>().Play();
+						}
+					}
+				}
 			}
 			prevStep = _currentStep;
 		}
