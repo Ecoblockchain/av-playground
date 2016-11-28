@@ -28,7 +28,8 @@ public class RotateSusan : MonoBehaviour {
 	IEnumerator _openOut(Vector3 vector){
 		float curveTime = 0f;
 		float curveAmount = OpenOutCurve.Evaluate(curveTime);
-		float rotAmount = 360.0f/numPedestals;
+		//float rotAmount = 360.0f/numPedestals;
+		float rotAmount = 30.0f;
 
 		while (curveAmount < 1.0f){
 			curveTime += Time.deltaTime * SpeedMultiplier;
