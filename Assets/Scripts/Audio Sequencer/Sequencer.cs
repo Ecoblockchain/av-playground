@@ -521,6 +521,11 @@ public class Sequencer : SequencerBase
 
     private void Update()
     {
+		if (objectTag == "crashParts") {
+			if (_currentStep != 0) {
+				bpm = 120;
+			}
+		}
 		if (beatTrak) {
 			if (_currentStep > 0) {
 				if (_currentStep != prevStep) {

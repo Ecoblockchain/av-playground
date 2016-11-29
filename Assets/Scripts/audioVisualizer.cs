@@ -24,7 +24,7 @@ public class audioVisualizer : MonoBehaviour {
 		float[] spectrum = AudioListener.GetSpectrumData (1024, 0, FFTWindow.Hamming);
 		for(int i = 0; i<numberOfObjects; i++){
 			Vector3 previousScale = cubes[i].transform.localScale;
-			previousScale.y = Mathf.Lerp (previousScale.y, spectrum[i] * 40, Time.deltaTime * 30);
+			previousScale.y = Mathf.Lerp (previousScale.y, spectrum[i] * 10, Time.deltaTime * 30);
 			cubes[i].transform.localScale = previousScale;
 
 		}
