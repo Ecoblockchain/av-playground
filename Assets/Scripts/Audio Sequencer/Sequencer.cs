@@ -520,7 +520,8 @@ public class Sequencer : SequencerBase
 
     private void Update()
     {
-		// Debug.Log (_currentStep);
+		Debug.Log (bpm);
+		bpm = 105;
 		if (_currentStep>0) {
 			if (_currentStep != prevStep) {
 				if (_currentStep == 1) {
@@ -536,6 +537,10 @@ public class Sequencer : SequencerBase
 					if (objects.GetComponent<Renderer> ().sharedMaterial == glowMaterial) {
 						if(objects.transform.parent.gameObject.GetComponent<Renderer> ().sharedMaterial == newMaterial){
 							Debug.Log ("working");
+							//if (animationObject.GetComponent<Animation> ().IsPlaying ()) {
+								//animationObject.GetComponent<Animation>().Stop();
+							//}
+							animationObject.GetComponent<Animation>().Stop();
 							animationObject.GetComponent<Animation>().Play();
 						}
 					}
