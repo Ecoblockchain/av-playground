@@ -27,6 +27,7 @@ public class SequenceChanger : MonoBehaviour {
         if (toggle)
         {
             col.material = mat1;
+			Debug.Log ("Green");
         }
         else
         {
