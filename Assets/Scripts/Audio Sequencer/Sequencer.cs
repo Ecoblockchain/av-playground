@@ -182,6 +182,7 @@ public class Sequencer : SequencerBase
 	public Material origMaterial;
 	public Material glowMaterial;
 	public String objectTag;
+	public bool beatTrak;
 	public GameObject[] beatArr;
 	private GameObject[] objectParts;
 	//private GameObject[] kickParts;
@@ -520,33 +521,33 @@ public class Sequencer : SequencerBase
 
     private void Update()
     {
-		Debug.Log (bpm);
-		bpm = 105;
-		if (_currentStep>0) {
-			if (_currentStep != prevStep) {
-				if (_currentStep == 1) {
-					beatArr [7].GetComponent<Renderer> ().sharedMaterial = origMaterial;
-				} else {
-					beatArr [_currentStep-2].GetComponent<Renderer> ().sharedMaterial = origMaterial;
-				}
-				// Debug.Log ("Change");
-				// Debug.Log (hihatArr[_currentStep-1]);
-				beatArr [_currentStep - 1].GetComponent<Renderer> ().sharedMaterial = newMaterial;
-				foreach (GameObject objects in objectParts) {
-					Debug.Log (objects.GetComponent<Renderer> ().sharedMaterial);
-					if (objects.GetComponent<Renderer> ().sharedMaterial == glowMaterial) {
-						if(objects.transform.parent.gameObject.GetComponent<Renderer> ().sharedMaterial == newMaterial){
-							Debug.Log ("working");
-							//if (animationObject.GetComponent<Animation> ().IsPlaying ()) {
+		if (beatTrak) {
+			if (_currentStep > 0) {
+				if (_currentStep != prevStep) {
+					if (_currentStep == 1) {
+						beatArr [7].GetComponent<Renderer> ().sharedMaterial = origMaterial;
+					} else {
+						beatArr [_currentStep - 2].GetComponent<Renderer> ().sharedMaterial = origMaterial;
+					}
+					// Debug.Log ("Change");
+					// Debug.Log (hihatArr[_currentStep-1]);
+					beatArr [_currentStep - 1].GetComponent<Renderer> ().sharedMaterial = newMaterial;
+					foreach (GameObject objects in objectParts) {
+						Debug.Log (objects.GetComponent<Renderer> ().sharedMaterial);
+						if (objects.GetComponent<Renderer> ().sharedMaterial == glowMaterial) {
+							if (objects.transform.parent.gameObject.GetComponent<Renderer> ().sharedMaterial == newMaterial) {
+								Debug.Log ("working");
+								//if (animationObject.GetComponent<Animation> ().IsPlaying ()) {
 								//animationObject.GetComponent<Animation>().Stop();
-							//}
-							animationObject.GetComponent<Animation>().Stop();
-							animationObject.GetComponent<Animation>().Play();
+								//}
+								animationObject.GetComponent<Animation> ().Stop ();
+								animationObject.GetComponent<Animation> ().Play ();
+							}
 						}
 					}
 				}
+				prevStep = _currentStep;
 			}
-			prevStep = _currentStep;
 		}
         while (_fireAnyStepEvent > 0)
         {
