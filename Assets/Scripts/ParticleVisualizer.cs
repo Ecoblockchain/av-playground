@@ -26,12 +26,12 @@ public class ParticleVisualizer : MonoBehaviour {
 	    Debug.Log(dbValue);
 	    if (dbValue < -160) dbValue = -160; // clamp it to -160dB min
 	    var emission = particleSystem.emission;
-	    if (dbValue > 20.0f) {
-	    	emission.rate = 100.0f;
-	    	particleSystem.startSpeed = 10.0f;
+	    if (dbValue > 40.0f) {
+	    	//emission.rate = 100.0f;
+	    	//particleSystem.startSpeed = 10.0f;
+	    	particleSystem.Play();
 	    } else{
-	    	emission.rate = 20.0f;
-	    	particleSystem.startSpeed = 1.5f;
+	    	particleSystem.Stop();
 	    }
 	}
 
