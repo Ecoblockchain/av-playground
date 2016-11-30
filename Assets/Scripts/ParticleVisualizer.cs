@@ -25,13 +25,30 @@ public class ParticleVisualizer : MonoBehaviour {
 	    dbValue = 20*Mathf.Log10(rmsValue/refValue); // calculate dB
 	    Debug.Log(dbValue);
 	    if (dbValue < -160) dbValue = -160; // clamp it to -160dB min
+	   
 	    var emission = particleSystem.emission;
-	    if (dbValue > 40.0f) {
-	    	//emission.rate = 100.0f;
-	    	//particleSystem.startSpeed = 10.0f;
-	    	particleSystem.Play();
-	    } else{
+	    if (dbValue <= 40.0f) {
 	    	particleSystem.Stop();
+	    } else{
+	    	emission.rate = 1000.0f;
+	    	particleSystem.gravityModifier = 0.75f;
+	    	if (dbValue > 40.5f){
+	    		particleSystem.gravityModifier = 0.66f;
+	    	}
+	    	if (dbValue > 42.0f){
+	    		particleSystem.gravityModifier = 0.40f;
+	    	}
+	    	if (dbValue > 43.0f){
+	    		particleSystem.gravityModifier = 0.20f;
+	    	}
+	    	if (dbValue > 45.0f){
+	    		emission.rate = 1000.0f;
+	    		particleSystem.gravityModifier = 0.0f;
+	    	} else if(dbValue > 48.0f){
+	    		emission.rate = 2000.0f;
+	    		particleSystem.gravityModifier = 0.0f;
+	    	}
+	    	particleSystem.Play();
 	    }
 	}
 
