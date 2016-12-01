@@ -3,17 +3,10 @@ using System.Collections;
 
 public class ParticleVisualizer : MonoBehaviour {
 
-	public int sampleSize = 512;
-	public float[] samples;
-	public ParticleSystem particleSystem;
-	private float sum;
-	private float rmsValue;
-	private float refValue = 0.1f;
-	private float dbValue;
+	private ParticleSystem particleSystem;
 	private int numActiveSteps;
 
 	void Start() {
-		samples = new float[sampleSize];
 		particleSystem = gameObject.GetComponent<ParticleSystem>();
 	}
 
@@ -29,7 +22,6 @@ public class ParticleVisualizer : MonoBehaviour {
 			if (snare.sequence[i]) numActiveSteps++;
 			if (crash.sequence[i]) numActiveSteps++;
 		}
-		Debug.Log(numActiveSteps);
 
 	    var emission = particleSystem.emission;
 	    if (numActiveSteps <= 0) {
