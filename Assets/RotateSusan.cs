@@ -38,22 +38,5 @@ public class RotateSusan : MonoBehaviour {
 	        print("Moving Left");
         }
 	}
-/*
-	public void OpenOut(Vector3 vector){
-		StartCoroutine(_openOut(vector));
-	}
 
-	IEnumerator _openOut(Vector3 vector){
-		float curveTime = 0f;
-		float curveAmount = OpenOutCurve.Evaluate(curveTime);
-		//float rotAmount = 360.0f/numPedestals;
-		while (curveAmount < 1.0f){
-			curveTime += Time.deltaTime * SpeedMultiplier;
-			curveAmount = OpenOutCurve.Evaluate(curveTime);
-			transform.Rotate(vector * Time.deltaTime * curveAmount * rotAmount);
-			yield return null;
-		}
-
-	}
-*/
 }
