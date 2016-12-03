@@ -23,29 +23,18 @@ public class SequenceChanger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        controller = GameObject.Find("Controller (right)");
-        VRTK_SimplePointer simplePointer = controller.GetComponent<VRTK_SimplePointer>();
-        if (gameObject == simplePointer.pointerTarget){
-            highlighted = true;
-        } else{
-            highlighted = false;
-        }
+
 
         seq.sequence[index] = toggle;
 
         if(Input.GetKeyDown(button)){
             toggle = !toggle;
         }
-        if (highlighted){
-            col.material = mat3;
+        if (toggle){
+            col.material = mat1;
         }
         else{
-             if (toggle){
-                col.material = mat1;
-            }
-            else{
-                col.material = mat2;
-            }           
-        }
+            col.material = mat2;
+        }           
     }
 }
