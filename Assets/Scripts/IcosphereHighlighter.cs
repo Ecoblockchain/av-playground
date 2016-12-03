@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using VRTK;
 
-public class IcosphereHightlighter : MonoBehaviour {
+public class IcosphereHighlighter : MonoBehaviour {
 	private GameObject controller;
 
 	void Start(){
