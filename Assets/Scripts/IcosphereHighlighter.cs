@@ -3,17 +3,17 @@ using System.Collections;
 using VRTK;
 
 public class IcosphereHighlighter : MonoBehaviour {
-	private GameObject controller;
+	public GameObject device;
+	private VRTK_SimplePointer simplePointer;
 
 	void Start(){
-		
+	    simplePointer = device.GetComponent<VRTK_SimplePointer>();
 	}
 
 	void Update(){
-	    controller = GameObject.Find("Controller (right)");
-	    VRTK_SimplePointer simplePointer = controller.GetComponent<VRTK_SimplePointer>();
-	    if (gameObject == simplePointer.pointerTarget){
+		Debug.Log("Hello: ", simplePointer.pointerTarget);
+	   /* if (gameObject == simplePointer.pointerTarget){
 	        gameObject.GetComponent<Renderer>().sharedMaterial = gameObject.GetComponent<SequenceChanger>().mat3;
-	    }
+	    }*/
 	}
 }
