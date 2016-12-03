@@ -14,8 +14,6 @@ public class IcosphereHighlighter : MonoBehaviour {
 	    VRTK_SimplePointer simplePointer = controller.GetComponent<VRTK_SimplePointer>();
 	    if (gameObject == simplePointer.pointerTarget){
 	        gameObject.GetComponent<Renderer>().sharedMaterial = gameObject.GetComponent<SequenceChanger>().mat3;
-	    } else{
-	        gameObject.GetComponent<Renderer>().sharedMaterial = gameObject.GetComponent<SequenceChanger>().mat3;
-	    }	
+	    }
 	}
 }
