@@ -594,6 +594,7 @@ public class Sequencer : SequencerBase
         }
     }
 
+
     /// <summary>
     /// Set Bpm.
     /// </summary>

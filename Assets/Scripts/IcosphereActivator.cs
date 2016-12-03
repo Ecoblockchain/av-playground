@@ -7,14 +7,18 @@ public class IcosphereActivator : MonoBehaviour {
 
 	}
 
+	/* always checking to see if raycast is hitting an orb */
 	void Update(){
-
+		VRTK_SimplePointer simplePointer = gameObject.GetComponent<VRTK_SimplePointer>();
+		SequenceChanger sequenceChanger;
+		if (sequenceChanger = simplePointer.pointerTarget.GetComponent<SequenceChanger>()){
+			sequenceChanger.highlighted = true;
+		}
 	}
 
+	/* gets called from controller events when trigger clicked */
 	public void activateIcosphere(){
-		Debug.Log("test");
 		VRTK_SimplePointer simplePointer = gameObject.GetComponent<VRTK_SimplePointer>();
-		Debug.Log(simplePointer.pointerTarget);	
 		SequenceChanger sequenceChanger;
 		if (sequenceChanger = simplePointer.pointerTarget.GetComponent<SequenceChanger>()){
 			sequenceChanger.toggle = !sequenceChanger.toggle;

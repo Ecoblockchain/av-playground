@@ -6,10 +6,12 @@ public class SequenceChanger : MonoBehaviour {
     public Sequencer seq;
     public string button;
     public bool toggle;
+    public bool highlighted;
     public int index;
     private MeshRenderer col;
     public Material mat1;
     public Material mat2;
+    public Material mat3;
 
     // Use this for initialization
     void Start () {
@@ -20,18 +22,19 @@ public class SequenceChanger : MonoBehaviour {
 	void Update () {
         seq.sequence[index] = toggle;
 
-        if(Input.GetKeyDown(button))
-        {
+        if(Input.GetKeyDown(button)){
             toggle = !toggle;
         }
-        if (toggle)
-        {
-            col.material = mat1;
-			Debug.Log ("Green");
+        if (highlighted){
+            col.material = mat3;
         }
-        else
-        {
-            col.material = mat2;
+        else{
+             if (toggle){
+                col.material = mat1;
+            }
+            else{
+                col.material = mat2;
+            }           
         }
     }
 }
