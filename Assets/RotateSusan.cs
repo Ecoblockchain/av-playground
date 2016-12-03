@@ -21,20 +21,20 @@ public class RotateSusan : MonoBehaviour {
        GameObject melody = GameObject.Find("Melody");
 
         if (Input.GetKey("right")){
-            hihat.transform.Rotate(Vector3.down * Time.deltaTime * rotAmount);
-            kick.transform.Rotate(Vector3.down * Time.deltaTime * rotAmount);
-            snare.transform.Rotate(Vector3.down * Time.deltaTime * rotAmount);
-            crash.transform.Rotate(Vector3.down * Time.deltaTime * rotAmount);
-            melody.transform.Rotate(Vector3.down * Time.deltaTime * rotAmount);
+                hihat.transform.RotateAround(hihat.GetComponent<Collider>().bounds.center, Vector3.down, rotAmount * Time.deltaTime);
+                kick.transform.RotateAround(kick.GetComponent<Collider>().bounds.center, Vector3.down, rotAmount * Time.deltaTime);
+                snare.transform.RotateAround(snare.GetComponent<Collider>().bounds.center, Vector3.down, rotAmount * Time.deltaTime);
+                crash.transform.RotateAround(crash.GetComponent<Collider>().bounds.center, Vector3.down, rotAmount * Time.deltaTime);
+                melody.transform.RotateAround(melody.GetComponent<Collider>().bounds.center, Vector3.down, rotAmount * Time.deltaTime);
             print("Moving Right");
         }
         
         if (Input.GetKey("left")){
-	        hihat.transform.Rotate(Vector3.up * Time.deltaTime * rotAmount);
-	        kick.transform.Rotate(Vector3.up * Time.deltaTime * rotAmount);
-	        snare.transform.Rotate(Vector3.up * Time.deltaTime * rotAmount);
-	        crash.transform.Rotate(Vector3.up * Time.deltaTime * rotAmount);
-	        melody.transform.Rotate(Vector3.up * Time.deltaTime * rotAmount);
+                hihat.transform.RotateAround(hihat.GetComponent<Collider>().bounds.center, Vector3.up, rotAmount * Time.deltaTime);
+                kick.transform.RotateAround(kick.GetComponent<Collider>().bounds.center, Vector3.up, rotAmount * Time.deltaTime);
+                snare.transform.RotateAround(snare.GetComponent<Collider>().bounds.center, Vector3.up, rotAmount * Time.deltaTime);
+                crash.transform.RotateAround(crash.GetComponent<Collider>().bounds.center, Vector3.up, rotAmount * Time.deltaTime);
+                melody.transform.RotateAround(melody.GetComponent<Collider>().bounds.center, Vector3.up, rotAmount * Time.deltaTime);
 	        print("Moving Left");
         }
 	}
