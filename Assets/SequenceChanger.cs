@@ -9,6 +9,8 @@ public class SequenceChanger : MonoBehaviour {
     public bool highlighted;
     public int index;
     private MeshRenderer col;
+    private GameObject controller;
+    private VRTK_SimplePointer simplePointer;
     public Material mat1;
     public Material mat2;
     public Material mat3;
@@ -20,6 +22,14 @@ public class SequenceChanger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        controller = GameObject.Find("Controller (right)");
+        VRTK_SimplePointer simplePointer = controller.GetComponent<VRTK_SimplePointer>();
+        if (gameObject == simplePointer.pointerTarget){
+            highlighted = true;
+        } else{
+            highlighted = false;
+        }
+
         seq.sequence[index] = toggle;
 
         if(Input.GetKeyDown(button)){
