@@ -3,10 +3,6 @@ using System.Collections;
 using VRTK;
 
 public class IcosphereActivator : MonoBehaviour {
-	private GameObject hihat;
-	private GameObject kick;
-	private GameObject snare;
-	private GameObject crash;
 
 	void Start(){
 
@@ -23,6 +19,5 @@ public class IcosphereActivator : MonoBehaviour {
 		if (sequenceChanger = simplePointer.pointerTarget.GetComponent<SequenceChanger>()){
 			sequenceChanger.toggle = !sequenceChanger.toggle;
 		}
-		
 	}
 }

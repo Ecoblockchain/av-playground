@@ -7,13 +7,14 @@ public class IcosphereHighlighter : MonoBehaviour {
 	private VRTK_SimplePointer simplePointer;
 
 	void Start(){
-	    simplePointer = device.GetComponent<VRTK_SimplePointer>();
 	}
 
 	void Update(){
-		Debug.Log("Hello: ", simplePointer.pointerTarget);
-	   /* if (gameObject == simplePointer.pointerTarget){
+	   // controller = GameObject.Find("Controller (right)");
+	    simplePointer = device.GetComponent<VRTK_SimplePointer>();
+	    Debug.Log(simplePointer);
+	    if (simplePointer.pointerTarget == gameObject){
 	        gameObject.GetComponent<Renderer>().sharedMaterial = gameObject.GetComponent<SequenceChanger>().mat3;
-	    }*/
+	    }
 	}
 }
