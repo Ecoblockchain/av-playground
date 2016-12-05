@@ -360,8 +360,20 @@ namespace VRTK
             {
                 TriggerClicked(this, e);
             }
-            IcosphereActivator icosphereActivator = gameObject.GetComponent<IcosphereActivator>();
+            
+            VRTK_SimplePointer simplePointer = gameObject.GetComponent<VRTK_SimplePointer>();
+            SequenceChanger sequenceChanger;
+            if (sequenceChanger = simplePointer.pointerTarget.GetComponent<SequenceChanger>()){
+                sequenceChanger.toggle = !sequenceChanger.toggle;
+            }
+            Reset reset;
+            if (reset = gameObject.GetComponent<Reset>()){
+                reset.ResetSequencers();
+            } 
+            /*IcosphereActivator icosphereActivator;
+            icosphereActivator = gameObject.GetComponent<IcosphereActivator>()){
             icosphereActivator.activateIcosphere();
+            */
         }
 
         public virtual void OnTriggerUnclicked(ControllerInteractionEventArgs e)
