@@ -14,7 +14,7 @@ public class IcosphereHighlighter : MonoBehaviour {
 
 	void Update(){
 		nowHitByRay = simplePointer.pointerTarget.gameObject;
-	    if (lastHitByRay && lastHitByRay != nowHitByRay){
+	    if (lastHitByRay && (lastHitByRay != nowHitByRay)){
 	    	SequenceChanger sequenceChanger;
 	    	if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
 	    		nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
