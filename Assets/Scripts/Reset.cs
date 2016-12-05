@@ -3,42 +3,46 @@ using System.Collections;
 
 public class Reset : MonoBehaviour {
 
-	private Sequencer hihat;
-	private Sequencer kick;
-	private Sequencer snare;
-	private Sequencer crash;
-	private Sequencer melodyA;
-	private Sequencer melodyC;
-	private Sequencer melodyD;
-	private Sequencer melodyE;
-	private Sequencer melodyG;
-
+	private GameObject[] hihat;
+	private GameObject[] kick;
+	private GameObject[] snare;
+	private GameObject[] crash;
+	private GameObject[] melodyA;
+	private GameObject[] melodyC;
+	private GameObject[] melodyD;
+	private GameObject[] melodyE;
+	private GameObject[] melodyG;
 
 	void Start(){
-		hihat = GameObject.Find("HiHat").GetComponent<Sequencer>();
-		kick = GameObject.Find("Kick").GetComponent<Sequencer>();
-		snare = GameObject.Find("Snare").GetComponent<Sequencer>();
-		crash = GameObject.Find("Crash").GetComponent<Sequencer>();
-		melodyA = GameObject.Find("A").GetComponent<Sequencer>();
-		melodyC = GameObject.Find("C").GetComponent<Sequencer>();
-		melodyD = GameObject.Find("D").GetComponent<Sequencer>();
-		melodyE = GameObject.Find("E").GetComponent<Sequencer>();
-		melodyG = GameObject.Find("G").GetComponent<Sequencer>();
+		hihat = GameObject.FindGameObjectsWithTag("hihatParts");
+		kick = GameObject.FindGameObjectsWithTag("kickParts");
+		snare = GameObject.FindGameObjectsWithTag("snareParts");
+		crash = GameObject.FindGameObjectsWithTag("crashParts");
+		melodyA = GameObject.FindGameObjectsWithTag("melodyAParts");
+		melodyC = GameObject.FindGameObjectsWithTag("melodyCParts");
+		melodyD = GameObject.FindGameObjectsWithTag("melodyDParts");
+		melodyE = GameObject.FindGameObjectsWithTag("melodyEParts");
+		melodyG = GameObject.FindGameObjectsWithTag("melodyGParts");
 	}
 
-	void Update(){}
+	void Update(){
+		if (Input.GetKey(KeyCode.Space)){
+			Debug.Log("Reset");
+			ResetSequencers();
+		}
+	}
 
 	public void ResetSequencers(){
 		for (int i = 0; i < 8; i++){
-			hihat.sequence[i] = false;
-			kick.sequence[i] = false;
-			snare.sequence[i] = false;
-			crash.sequence[i] = false;
-			melodyA.sequence[i] = false;
-			melodyC.sequence[i] = false;
-			melodyD.sequence[i] = false;
-			melodyE.sequence[i] = false;
-			melodyG.sequence[i] = false;
+			hihat[i].GetComponent<SequenceChanger>().toggle = false;
+			kick[i].GetComponent<SequenceChanger>().toggle = false;
+			snare[i].GetComponent<SequenceChanger>().toggle = false;
+			crash[i].GetComponent<SequenceChanger>().toggle = false;
+			melodyA[i].GetComponent<SequenceChanger>().toggle = false;
+			melodyC[i].GetComponent<SequenceChanger>().toggle = false;
+			melodyD[i].GetComponent<SequenceChanger>().toggle = false;
+			melodyE[i].GetComponent<SequenceChanger>().toggle = false;
+			melodyG[i].GetComponent<SequenceChanger>().toggle = false;
 		}
 	}
 }
