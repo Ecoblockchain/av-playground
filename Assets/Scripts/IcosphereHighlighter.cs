@@ -19,7 +19,12 @@ public class IcosphereHighlighter : MonoBehaviour {
 		if (lastHitByRay){
 		    if (lastHitByRay != nowHitByRay){ // if the hovered object is different than the last
 		    	if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
-		    		nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+		    		if(sequenceChanger.toggle){
+		    			nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat4; // highlight bluegreen
+		    		}
+		    		else {
+		    			nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+		    		}
 		    	}
 		    	else if (sequenceChanger = lastHitByRay.GetComponent<SequenceChanger>()){
 		    		if(sequenceChanger.toggle){
@@ -32,7 +37,12 @@ public class IcosphereHighlighter : MonoBehaviour {
 		    }
 		   	else{ // still highlighted on same object
 				if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
-					nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+		    		if(sequenceChanger.toggle){
+						nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat4; // highlight bluegreen
+		    		}
+		    		else{
+						nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+		    		}
 				}		   		
 		   	}			
 		}

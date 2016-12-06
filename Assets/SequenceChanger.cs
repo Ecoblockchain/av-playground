@@ -12,9 +12,10 @@ public class SequenceChanger : MonoBehaviour {
     private MeshRenderer col;
     private GameObject controller;
     private VRTK_SimplePointer simplePointer;
-    public Material mat1;
-    public Material mat2;
-    public Material mat3;
+    public Material mat1; // activated
+    public Material mat2; // deactivated
+    public Material mat3; // glow blue when highlited by raycast
+    public Material mat4; // glow blue green if active AND highlighted by raycast
 
     // Use this for initialization
     void Start () {
