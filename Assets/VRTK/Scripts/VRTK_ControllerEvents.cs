@@ -367,13 +367,9 @@ namespace VRTK
                 sequenceChanger.toggle = !sequenceChanger.toggle;
             }
             Reset reset;
-            if (reset = gameObject.GetComponent<Reset>()){
+            if (reset = simplePointer.pointerTarget.GetComponent<Reset>()){
                 reset.ResetSequencers();
             } 
-            /*IcosphereActivator icosphereActivator;
-            icosphereActivator = gameObject.GetComponent<IcosphereActivator>()){
-            icosphereActivator.activateIcosphere();
-            */
         }
 
         public virtual void OnTriggerUnclicked(ControllerInteractionEventArgs e)

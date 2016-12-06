@@ -7,6 +7,7 @@ public class IcosphereHighlighter : MonoBehaviour {
 	private GameObject lastHitByRay;
 	private GameObject nowHitByRay;
 	private VRTK_SimplePointer simplePointer;
+	private SequenceChanger sequenceChanger;
 
 	void Start(){
 		simplePointer = gameObject.GetComponent<VRTK_SimplePointer>();
@@ -14,20 +15,27 @@ public class IcosphereHighlighter : MonoBehaviour {
 
 	void Update(){
 		nowHitByRay = simplePointer.pointerTarget.gameObject;
-	    if (lastHitByRay && (lastHitByRay != nowHitByRay)){
-	    	SequenceChanger sequenceChanger;
-	    	if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
-	    		nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
-	    	}
-	    	else if (sequenceChanger = lastHitByRay.GetComponent<SequenceChanger>()){
-	    		if(sequenceChanger.toggle){
-	    			lastHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat1; // green glow
-	    		}
-	    		else{
-	    			lastHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat2; // default
-	    		}
-	    	}
-	    }
+
+		if (lastHitByRay){
+		    if (lastHitByRay != nowHitByRay){ // if the hovered object is different than the last
+		    	if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
+		    		nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+		    	}
+		    	else if (sequenceChanger = lastHitByRay.GetComponent<SequenceChanger>()){
+		    		if(sequenceChanger.toggle){
+		    			lastHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat1; // green glow
+		    		}
+		    		else{
+		    			lastHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat2; // default
+		    		}
+		    	}
+		    }
+		   	else{ // still highlighted on same object
+				if (sequenceChanger = nowHitByRay.GetComponent<SequenceChanger>()){
+					nowHitByRay.GetComponent<Renderer>().sharedMaterial = sequenceChanger.mat3; // highlight blue
+				}		   		
+		   	}			
+		}
 	    lastHitByRay = nowHitByRay;
 	}
 
