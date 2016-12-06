@@ -91,6 +91,7 @@ internal class SequencerDriver : SequencerBase
         if (playWhenReady)
         {
             Play();
+            GameObject.Find("BackTrack").GetComponent<AudioSource>().Play();
         }
         OnReady();
     }
