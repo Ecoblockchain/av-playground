@@ -1,3 +1,6 @@
-# Basic Step Sequencer POC, using https://github.com/Nidre/Unity-Audio-Sequencer
+# Audiovisual Playground  
+Audiovisual Playground is a Unity application developed for the HTC VIVE. It is a 3D, interactive, music-making interface accompanied by futuristic aesthetics and visuals.
 
-# Use the Q through I keys to toggle the spheres, which update the Sequencer parented to them
+###Credits:
+Co-authors: Kristof Klipfel, Chris Koski, Alex Goodwin
+Basic Step Sequencer POC, using https://github.com/Nidre/Unity-Audio-Sequencer
